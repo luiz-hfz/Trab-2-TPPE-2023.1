@@ -7,6 +7,7 @@
 | 0.1    | 13/07/2023 | Criação do Documento e Adição topico de Simplicade   |
 | 0.2    | 19/07/2023 | Adição do tópico de Portabilidade |
 | 0.3    | 19/07/2023 | Adição do tópico de Boa Documentação |
+| 0.4    | 19/07/2023 | Adição do tópico de Elegância |
 
 
 # Simplicidade
@@ -148,3 +149,52 @@ Atualizar a Documentação Regularmente: Garantir que a documentação seja revi
 Ferramentas de Automação: Utilizar ferramentas de geração de documentação automática, como Doxygen ou Javadoc, para extrair automaticamente comentários do código e criar documentação estruturada.
 
 Lembre-se de que uma boa documentação é um elemento essencial para o sucesso de um projeto de software, pois contribui para a compreensão, manutenção e colaboração eficazes entre os membros da equipe. Se precisar de mais informações específicas ou tiver alguma dúvida adicional, sinta-se à vontade para perguntar!
+
+# Elegância
+
+A elegância é uma característica que engloba os aspectos estéticos do design do código, muitas vezes caminhando lado a lado com a simplicidade. Um código elegante é aquele que não se complica sem necessidade, um código que não se perde em sua complexidade e que resolve os problemas de maneira sucinta e direta.
+
+## Efeitos no código:
+
+- Estrutura: A elegância trás uma noção de complementação, cada parte complementa a anterior, gerando assim uma estrutura de fácil acopanhamento.
+- Claridade: Seguindo a ideia de complementação, uim código elegante possui um fluxo direto e claro, não sendo repleto de casos especiais.
+- Coesão: A elegância também associa  coisas parecidas, evitando assim a ploriferação de duplicidade e código desnecessário, assim, aumentando a coesão do código.
+- Acoplamento: Um código elegante também favorece acoplamento, visto que uma característica importante da elegância é poder mudar uma parte do código sem afetar todo o resto do sistema. Además, a elegância também trás um funcionamento mais local, sem precisar passar por muitos métodos e módulos diferentes. 
+
+## Relação com os maus cheiros de código definidos por Fowler:
+
+- Código Duplicado: Seguindo com os aspectos de simplicidade, a elegância também ajuda na diminuição de duplicidade de código, proncipalmente por conta da associação de aspectos similares como a localidade de mudança.
+
+- Cirurgia com rifle: Por conta do aspecto da localidade de mudança, o códgio elegante também faz com que mudanças feitas no código não efetem uma área muito grande, assim evitando muitas mudanças em lugares diferentes do código.
+
+## Operação de refatoração relacionada:
+
+- Incorporar classe: Ao juntar o conjunto de conportamentos em uma só estrutura, o código se torna mais coeso e direto, que por sua vez ajuda com o problema de Cirurgia com rifle, visto que uma mudança que afeta tais métodos ou campos estará concentrado em uma mesma estrutua.
+
+
+## Exemplo em código:
+
+Levemos em conta as seguintes classe.
+
+``` java
+public class Pessoa{
+    private String nome;
+    private String cpf;
+    private String rg;
+
+    ...
+}
+
+public class Empresa{
+    private String titulo;
+    private String cnpj;
+
+    ...
+}
+```
+
+Nesse exemplo, temos alguns documentos que podem ser validados, e esses métodos podem ser feitos cada um em uma classe diferente, por exemplo poderia existir o `PessoaService.java` e um `EmpresaService.java` e nela ter a validação deles.
+
+Mas ao invés disso, se for criado uma classe `DocumentoValidation.java` e nele ser colocado todos os métodos de validação, se alguma mudança for feita, por exemplo em uma biblioteca de validação, todas as mudanças seriam feitas em `DocumentoValidation.java` e não nos dois arquivos.
+
+Isso se caracteriza como uma operação de "Incorporar classe", que por sua vez aumenta a elegância do código, visto que associa aspectos iguais do código e diminui a localidade de mudanças.
