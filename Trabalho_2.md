@@ -6,6 +6,7 @@
 |--------|------------|---------------------------------------|
 | 0.1    | 13/07/2023 | Criação do Documento e Adição topico de Simplicade   |
 | 0.2    | 19/07/2023 | Adição do tópico de Portabilidade |
+| 0.3    | 19/07/2023 | Adição do tópico de Boa Documentação |
 
 
 # Simplicidade
@@ -114,3 +115,36 @@ public class iOSFileHandler implements FileHandler {
 ``` 
 
 Dessa forma, o restante do código pode usar a interface FileHandler sem se preocupar com as particularidades de cada plataforma. Em tempo de execução, você pode instanciar a implementação adequada dependendo da plataforma em que o aplicativo está sendo executado.
+
+# Boa Documentação
+
+A boa documentação em um projeto de software refere-se à prática de criar e manter uma documentação clara, completa e atualizada, que descreve o funcionamento interno do código, a arquitetura, os componentes, as interfaces, as decisões de design e outras informações relevantes. Isso inclui tanto a documentação direta do código (como comentários) quanto documentação externa (como manuais do usuário ou documentos técnicos).
+
+## Efeitos no código:
+
+ Estrutura: A boa documentação ajuda a estabelecer uma estrutura coerente no código, permitindo que os desenvolvedores entendam como os diferentes componentes se relacionam e interagem entre si.
+ Claridade: Com uma documentação adequada, o código se torna mais claro e legível, facilitando a compreensão tanto para o desenvolvedor que escreveu o código originalmente quanto para outros que precisam mantê-lo ou colaborar no projeto.
+ Coesão: A documentação ajuda a explicar a responsabilidade de cada módulo ou função, garantindo que eles sejam coesos, ou seja, que mantenham uma única responsabilidade bem definida.
+ Acoplamento: Uma boa documentação pode ajudar a identificar os pontos de acoplamento entre diferentes partes do código, permitindo que os desenvolvedores entendam as dependências e as interfaces.
+ Manutenibilidade: Com uma documentação adequada, a manutenção do código se torna mais fácil, pois novos desenvolvedores ou membros da equipe podem se familiarizar rapidamente com o código existente.
+Relação com os maus-cheiros de código definidos por Fowler:
+A falta de documentação ou documentação inadequada pode levar a alguns maus-cheiros de código definidos por Martin Fowler, como:
+
+Comentários Desnecessários: Comentários confusos ou redundantes que não fornecem informações úteis podem poluir o código e torná-lo menos legível.
+Código Duplicado: Sem documentação adequada, os desenvolvedores podem não perceber que um trecho de código já foi implementado em outro lugar, levando a duplicações desnecessárias.
+Métodos/Funções Gigantes: Sem documentação clara sobre a funcionalidade de cada método ou função, os desenvolvedores podem hesitar em dividir blocos de código longos em unidades menores e mais gerenciáveis.
+Classe/Módulo com Responsabilidade Excessiva: A falta de documentação pode resultar em classes ou módulos que acumulam várias responsabilidades, tornando o código mais difícil de manter e entender.
+Operação de refatoração para atingir a característica - Boa Documentação:
+Para alcançar a característica de boa documentação, pode-se seguir as seguintes práticas de refatoração:
+
+Adicionar Comentários Significativos: Revisar o código existente e adicionar comentários significativos para explicar o propósito de cada classe, método, função ou trecho de código complexo. Os comentários devem esclarecer o "porquê" das decisões de design, não apenas o "o que" o código está fazendo.
+
+Criar Documentação Externa: Criar ou atualizar manuais do usuário, documentação técnica e/ou wiki do projeto para descrever a arquitetura geral, fluxos de trabalho, configurações e outras informações relevantes para desenvolvedores e usuários.
+
+Usar Padrões de Documentação: Padronizar a forma como os comentários são escritos e apresentar diretrizes claras para a documentação do código. Isso torna mais fácil para todos os membros da equipe seguirem o mesmo formato e estilo.
+
+Atualizar a Documentação Regularmente: Garantir que a documentação seja revisada e atualizada conforme o código é alterado ou evolui. Documentação desatualizada pode levar a confusões e erros.
+
+Ferramentas de Automação: Utilizar ferramentas de geração de documentação automática, como Doxygen ou Javadoc, para extrair automaticamente comentários do código e criar documentação estruturada.
+
+Lembre-se de que uma boa documentação é um elemento essencial para o sucesso de um projeto de software, pois contribui para a compreensão, manutenção e colaboração eficazes entre os membros da equipe. Se precisar de mais informações específicas ou tiver alguma dúvida adicional, sinta-se à vontade para perguntar!
