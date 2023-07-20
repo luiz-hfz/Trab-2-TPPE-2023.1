@@ -8,6 +8,7 @@
 | 0.2    | 19/07/2023 | Adição do tópico de Portabilidade |
 | 0.3    | 19/07/2023 | Adição do tópico de Boa Documentação |
 | 0.4    | 19/07/2023 | Adição do tópico de Elegância |
+| 0.5    | 19/07/2023 | Adição do tópico de Ausência de duplicidade |
 
 
 # Simplicidade
@@ -198,3 +199,76 @@ Nesse exemplo, temos alguns documentos que podem ser validados, e esses métodos
 Mas ao invés disso, se for criado uma classe `DocumentoValidation.java` e nele ser colocado todos os métodos de validação, se alguma mudança for feita, por exemplo em uma biblioteca de validação, todas as mudanças seriam feitas em `DocumentoValidation.java` e não nos dois arquivos.
 
 Isso se caracteriza como uma operação de "Incorporar classe", que por sua vez aumenta a elegância do código, visto que associa aspectos iguais do código e diminui a localidade de mudanças.
+
+# Ausência de Duplicidade
+
+A ausência de duplicidade é um princípio fundamental no contexto de boas práticas de programação. Esse princípio busca eliminar redundâncias e evitar a repetição desnecessária de código no sistema. Quando um código possui duplicações, ele se torna mais difícil de manter, aumenta a probabilidade de erros e dificulta a evolução do software.
+
+## Efeitos no código:
+
+- Redução da complexidade: A ausência de duplicidade contribui para a redução da complexidade do código. Sem duplicações, o código é mais conciso e claro, tornando-se mais fácil de entender e manter;
+- Facilita a manutenção: Quando uma funcionalidade precisa ser modificada, a ausência de duplicidade permite que a alteração seja feita em um único lugar, evitando a necessidade de realizar alterações repetidas em várias partes do código;
+- Promove a coesão: A ausência de duplicidade está diretamente relacionada à coesão do código, que é a capacidade dos componentes estarem relacionados de maneira lógica. Um código sem duplicações tende a ser mais coeso, com funcionalidades bem definidas e agrupadas de forma lógica;
+- Reduz o risco de erros: A duplicação de código aumenta a probabilidade de erros, pois as alterações feitas em uma parte duplicada podem ser esquecidas em outras. A ausência de duplicação ajuda a mitigar esse risco, melhorando a qualidade e a confiabilidade do software.
+
+## Relação com os maus cheiros de código definidos por Fowler:
+
+A ausência de duplicidade está diretamente relacionada à eliminação de código duplicado. Ao evitar duplicações, podemos melhorar a legibilidade, a manutenibilidade e a reusabilidade do código.
+
+## Operações de refatoração relacionadas:
+
+### Extração de Método
+A refatoração por Extração de Método pode ser aplicada para eliminar duplicações, criando métodos que encapsulam a lógica duplicada e podem ser reutilizados em diferentes partes do código.
+
+## Exemplo em código:
+Neste exemplo, vamos considerar um sistema simples para calcular o preço total de uma compra com base nos preços individuais dos produtos e na quantidade de cada produto comprado:
+```
+public class CalculadoraPreco {
+    public static double calcularPrecoTotalProduto1(int quantidade) {
+        double precoUnitario = 10.0;
+        return quantidade * precoUnitario;
+    }
+
+    public static double calcularPrecoTotalProduto2(int quantidade) {
+        double precoUnitario = 15.0;
+        return quantidade * precoUnitario;
+    }
+
+    public static void main(String[] args) {
+        // Cálculo do preço total da compra
+        int quantidadeProduto1 = 5;
+        int quantidadeProduto2 = 3;
+
+        double precoTotalProduto1 = calcularPrecoTotalProduto1(quantidadeProduto1);
+        double precoTotalProduto2 = calcularPrecoTotalProduto2(quantidadeProduto2);
+
+        double precoTotalCompra = precoTotalProduto1 + precoTotalProduto2;
+        System.out.println(precoTotalCompra);
+    }
+}
+```
+
+Agora, para remover a duplicidade e utilizar apenas uma função para calcular o preço total de qualquer produto, podemos fazer o seguinte:
+```
+public class CalculadoraPreco {
+
+    public static double calcularPrecoTotal(double precoUnitario, int quantidade) {
+        return quantidade * precoUnitario;
+    }
+
+    public static void main(String[] args) {
+        // Cálculo do preço total da compra
+        double precoUnitarioProduto1 = 10.0;
+        double precoUnitarioProduto2 = 15.0;
+
+        int quantidadeProduto1 = 5;
+        int quantidadeProduto2 = 3;
+
+        double precoTotalProduto1 = calcularPrecoTotal(precoUnitarioProduto1, quantidadeProduto1);
+        double precoTotalProduto2 = calcularPrecoTotal(precoUnitarioProduto2, quantidadeProduto2);
+
+        double precoTotalCompra = precoTotalProduto1 + precoTotalProduto2;
+        System.out.println(precoTotalCompra);
+    }
+}
+```
